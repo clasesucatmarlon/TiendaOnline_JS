@@ -1,101 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boostrap</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Store</title>
     <!-- BOOSTRAP CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <!-- PROPIOS CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-</head>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
+  <body>
     <!---  NAVEGACION -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Tienda online" style="width:10%;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Quiénes somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Equipo de trabajo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-
+    <!-- <div class="topbar">
+      <div class="wrapper">
+        <div class="wrapper_left">
+          <span class="logo">Online Shop</span>
+          
         </div>
-    </nav>
 
-    <!--  CABECERA - HEADER -->
-    <header class="main-header">
-        <div class="background-overlay text-white py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center justify-content-center align-self-center">
-                        <h1>título o frase relacionada al producto</h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam placeat quos incidunt atque
-                            dolorum repudiandae!</p>
-                        <a href="#" class="btn btn-outline-secondary btn-lg text-white">
-                            Leer más...
-                        </a>
-                    </div>
+        <div class="wrapper_right">
+          <div class="icons-container">
+            <span class="topicon_cart">7</span>
+            <i class="fas fa-shopping-cart"></i>
+          </div>
 
-                    <div class="col-md-6">
-                        <img src="{{ url_for('static', filename='img/imagen_001.png') }}" alt="Imagen de fonde" class="img-fluid display d-none d-sm-block">
-                    </div>
 
-                </div>
-            </div>
+
+          <img src="./assets/images/fotomg.png" alt="" class="avatar" />
         </div>
+      </div>
+    </div> -->
+
+    <!-- HEADER -->
+    <header>
+      <div>
+      <div class="header-section container">
+        <img class="logo" src=".//assets/images/logo2.png" alt="" />
+          <img
+            onmouseover="showCart(this)"
+            class="cart"
+            src="./assets/images/cart1.png"
+            alt=""
+          />
+          <p class="count-product">0</p>
+        </div>
+        <div class="cart-products" id="products-id">
+          <p class="close-btn" onclick="closeBtn()">X</p>
+          <h3>Mi carrito</h3>
+          <div class="card-items">
+            <!-- <div class="item">
+                    <img src="./images/products/keyboard-1.jpg" alt="">
+                    <div class="item-content">
+                        <h5>name of product name of product name of product</h5>
+                        <h5 class="cart-price">45.50$</h5>
+                        <h6>Amount: 3</h6>
+                    </div>
+                    <span>X</span>
+                </div>-->
+          </div>
+          <h2>Total: <strong class="price-total">0</strong> $</h2>
+        </div>
+      </div>
     </header>
+    <!-- end header -->
 
-    <!-- NEWLETTERS -->
-    <section class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Ingrese su nombre">
-                </div>
-                <div class="col-md-4">
-                    <input type="email" class="form-control form-control-lg" placeholder="Ingrese su Email">
-                </div>
-                <div class="col-md-4">
-                    <button class="btn-btn-primary btn-lg btn-block">
-                        Suscríbete
-                    </button>
-                </div>
-
+    <!-- SLIDER -->
+    <main>
+      <div class="slide-container">
+        <img
+          id="slide-left"
+          class="arrow"
+          src="./assets/images/arrow-left.png"
+        />
+        <section class="container" id="slider">
+          <div class="thumbnail">
+            <img src="./assets/images/1.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="https://www.google.com" target="_blank">Add to Cart</a>
             </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/2.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/3.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="../assets/images/4.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/5.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/6.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/7.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/8.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/9.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/10.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <img src="./assets/images/11.png" alt="" />
+            <div class="product-details">
+              <h2>Demo Product</h2>
+              <p><span>$39.99</span> $29.99</p>
+              <a href="#">Add to Cart</a>
+            </div>
+          </div>
+        </section>
+        <img
+          id="slide-right"
+          class="arrow"
+          src="./assets/images/arrow-right.png"
+        />
+      </div>
+    </main>
+    <!-- END SLIDER -->
 
-        </div>
-
-    </section>
-
+    <!--  CONTENIDO -->
+    <ul class="page_content"></ul>
 
     <!-- BOOTSTRAP JAVA SCRIPT -->
-    <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-</body>
+    <script
+      src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./assets/js/slider.js"></script>
+    <script defer src="./assets/js/showProducts.js" type="module"></script>
+    <script defer src="./assets/js/cart.js"></script>
 
+    <script>
+      function showCart(x){
+        document.getElementById("products-id").style.display = "block";
+      }
+      function closeBtn(){
+        document.getElementById("products-id").style.display = "none";
+      }
+
+  </script>
+  </body>
 </html>
